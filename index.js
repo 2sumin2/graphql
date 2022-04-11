@@ -17,7 +17,7 @@ const server = createServer({
         }
         type Mutation{
             addMovie(name:String!, score:Int!): Movie!,
-            deleteMovie(id:Int!): Movie!
+            deleteMovie(id:Int!): Boolean!
         }`,
         resolvers
     }

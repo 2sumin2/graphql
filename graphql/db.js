@@ -1,4 +1,4 @@
-export const movies = [{
+export let movies = [{
     id: 0,
     name: "Star Wars - The new one",
     age: 23,
@@ -30,18 +30,22 @@ export const getById = id => {
     return filterdMovies[0];
 };
 
-export const deleteMovie = ({ id }) => {
-    const cleandMovies = movies.filter(movie => movie.id != id);
+export const deleteMovie = (id) => {
+    const cleandMovies = movies.filter(movie => movie.id !== id);
     if (movies.length > cleandMovies.length) {
-        movie = cleandMovies;
+        movies = cleandMovies;
         return true;
     } else {
         return false;
     }
 };
+const findLastId = () => {
+    return movies[movies.length - 1].id;
+};
+
 export const addMovie = (name, score) => {
     const newMovie = {
-        id: `${movies.length}`,
+        id: findLastId() + 1,
         name,
         score,
         age: 23
