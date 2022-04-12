@@ -1,55 +1,41 @@
-export let movies = [{
+export let users = [{
     id: 0,
-    name: "Star Wars - The new one",
-    age: 23,
-    score: 5
+    email: "lsm001005@naver.com",
+    statement: "Lee Su Min",
+    username: "2sumin2",
+    password: "2sumin2"
 },
 {
     id: 1,
-    name: "Avengers - The new one",
-    age: 23,
-    score: 4
-},
-{
-    id: 2,
-    name: "The Godfather 1",
-    age: 23,
-    score: 3
-},
-{
-    id: 3,
-    name: "Logan",
-    age: 23,
-    score: 4
+    email: "2019212989@naver.com",
+    statement: "Lee Su Min",
+    username: "3sumin3",
+    password: "3sumin3"
 }];
 
-export const getMovies = () => movies;
+export const getUsers = () => users;
 
-export const getById = id => {
-    const filterdMovies = movies.filter(movie => movie.id === id);
-    return filterdMovies[0];
-};
-
-export const deleteMovie = (id) => {
-    const cleandMovies = movies.filter(movie => movie.id !== id);
-    if (movies.length > cleandMovies.length) {
-        movies = cleandMovies;
+export const deleteUser = (username) => {
+    const cleandUsers = users.filter(user => user.username !== username);
+    if (users.length > cleandUsers.length) {
+        users = cleandUsers;
         return true;
     } else {
         return false;
     }
 };
 const findLastId = () => {
-    return movies[movies.length - 1].id;
+    return users[users.length - 1].id;
 };
 
-export const addMovie = (name, score) => {
-    const newMovie = {
+export const addUser = (email, statement, username, password) => {
+    const newUser = {
         id: findLastId() + 1,
-        name,
-        score,
-        age: 23
+        email,
+        statement,
+        username,
+        password
     };
-    movies.push(newMovie);
-    return newMovie;
+    users.push(newUser);
+    return newUser;
 };

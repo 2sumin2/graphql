@@ -5,19 +5,23 @@ import resolvers from './graphql/resolvers.js';
 const server = createServer({
     schema: {
         typeDefs:
-            `type Movie {
-                id:Int!
-            name:String!,
-            age: Int!,
-            score: Int!
+            `type User {
+            id: Int!,
+            email: String!,
+            statement: String!,
+            username: String!,
+            password: String!
         } 
         type Query {
-        movies: [Movie]!
-        movie(id: Int!): Movie
+            users: [User]!
         }
         type Mutation{
-            addMovie(name:String!, score:Int!): Movie!,
-            deleteMovie(id:Int!): Boolean!
+            addUser(email: String!,
+                statement: String!,
+                username: String!,
+                password: String!
+            ) : User!,
+            deleteUser(username:String!): Boolean!
         }`,
         resolvers
     }
